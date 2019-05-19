@@ -25,7 +25,7 @@ let user = User(name: "John")
 初始化 John
 ```
 
-因为**`user`**始终在在作用域内，所以 **`deinit`** 不会被调用，可以将上面的语句包含在 **`do`** 语句中，这样do语句完成后，就跳出该作用域了
+因为 **`user`** 始终在在作用域内，所以 **`deinit`** 不会被调用，可以将上面的语句包含在 **`do`** 语句中，这样do语句完成后，就跳出该作用域了
 
 ```swift
 do {
@@ -136,7 +136,7 @@ do {
 
 ![](./3.UserIphoneCycle.png)
 
-## 3. 弱引用(Weak References)
+## 4. 弱引用(Weak References)
 
 为了打破强引用循环，可以将相互引用的对象之间的关系设置为 **`弱(weak)`**。
 
@@ -211,7 +211,7 @@ do {
 
 
 
-## 4. 无主引用(Unowned References)
+## 5. 无主引用(Unowned References)
 
 这是另一种不增加引用计数的修饰符：**`unowned`**.
 
@@ -358,7 +358,7 @@ CarrierSubscription TelBel 销毁
 
 
 
-## 5. 闭包引起的引用循环(Reference Cycles with Closures)
+## 6. 闭包引起的引用循环(Reference Cycles with Closures)
 
 
 
@@ -568,7 +568,7 @@ lazy var completePhoneNumber: () -> String = { [unowned newID = self] in
 
 
 
-### 5.1 小心使用无主关系(Using Unowned with Care)
+### 6.1 小心使用无主关系(Using Unowned with Care)
 
 上面的示例中 **`self`** 和 **`completePhoneNumber`** 的关系是 **`unowned`**.
 
@@ -649,7 +649,7 @@ lazy var greetingMaker: () -> String = { [weak self] in
 
 
 
-## 6. 值类型循环和引用类型循环(Cycles with Value Types and Reference Types)
+## 7. 值类型循环和引用类型循环(Cycles with Value Types and Reference Types)
 
 swift 中class是引用类型，sturct，enum等是值类型。当传递值类型时，是进行拷贝操作，而引用类型则是进行共享。
 
@@ -733,7 +733,7 @@ do {
 
 这样所有的对象都可以被销毁。
 
-注意，**`friends`**不再是一个 **`Person`** 独享集合，而是一个 **`Unowned`** 对象集合，用于对 **`Person`**实例进行包裹。
+注意，**`friends`** 不再是一个 **`Person`** 独享集合，而是一个 **`Unowned`** 对象集合，用于对 **`Person`**实例进行包裹。
 
 为了访问 **`Person`** 对象，可以使用 **`Unowned`** 中定义的 **`value`** 属性
 

@@ -568,6 +568,30 @@ lazy var completePhoneNumber: () -> String = { [unowned newID = self] in
 
 
 
+另外捕获列表的有参数和没有参数的2种写法：
+
+```swift
+// 闭包有参数
+// 把捕获列表放在形参和返回类型前边
+lazy var someClosure: (Int, String) -> String = {
+    [unowned self, weak delegate = self.delegate!](index: Int, stringToProcess: String) -> String in
+    // closure body here
+}
+
+
+// 闭包没有指明形参列表或者返回类型
+// 是因为它们会通过上下文推断
+// 把捕获列表放在关键词 in 前边
+lazy someClosure: () -> String = {
+    [unowned self, weak delegate = self.delegate!] in
+    // closure body here
+}
+```
+
+
+
+
+
 ### 6.1 小心使用无主关系(Using Unowned with Care)
 
 上面的示例中 **`self`** 和 **`completePhoneNumber`** 的关系是 **`unowned`**.
@@ -748,6 +772,9 @@ let firstFriendOfHarry = harry.friends.first?.value
 - 对象引用之间的几种关系，强，弱，无主
   - **`weak`**
   - **`unowned`**
+- 什么时候使用 弱关系，什么时候使用 无主引用，需要根据对象之间的依赖关系来判断，还有就是是否依赖能为nil的情况，无主引用需要引用的对象一定存在
+  - 比如 **`用户`** 可以拥有 **`银行卡`**，也可以不需要 **`银行卡`**， 银行卡一定对应一个 `用户`， 如果 `银行卡` 中有个 `用户` 属性，一般将这个 `用户` 属性 声明为 无主引用
+  - 比如一个 **`人`** 可以拥有一个 **`房子`**，也可以没有 房子，房子 可以有 人 住， 也可能没 人 住，如果 人 有个 房子 属性，房子 有个 人 属性，则可以将房子中的 人 声明为 弱引用关系
 - 捕获列表的用法
 - 捕获列表在闭包中如何消除引用循环
 - 弱引用关系的使用方式

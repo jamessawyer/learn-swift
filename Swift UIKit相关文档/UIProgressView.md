@@ -214,7 +214,7 @@ class ViewController: UIViewController {
 
 使用 **`UIGraphicsGetCurrentContext`** 绘制一个圆条形状，如下：
 
-![](./images/UIView IB.jpg)
+![](./images/UIButton_IB.jpg)
 
 注意上面的 **`UIView`** 为了图片展示，将其背景色设置为了橙色，实际运行的时候会将这个背景色去掉。
 

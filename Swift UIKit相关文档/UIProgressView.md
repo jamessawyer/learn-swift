@@ -72,7 +72,7 @@ open class UIProgressView : UIView, NSCoding {
 
 上面的接口基本上将属性进行了初略的介绍，下面图示对其进行简单的描述
 
-![](./images/UIProgressView 基本样式属性.jpg)
+![](./images/UIProgressView基本样式属性.jpg)
 
 
 
@@ -126,7 +126,7 @@ pv.frame = CGRect(x: 0, y: 0, width: 200, height: 20)
    ```
 
 
-## ## 自定义进度条样式
+## 自定义进度条样式
 
 
 
@@ -202,7 +202,7 @@ class ViewController: UIViewController {
 
 进度条图片：
 
-  ![](./images/自定义绘制 progressImage.jpg)
+ ![](./images/自定义绘制progressImage.jpg)
 
 
 
@@ -301,7 +301,7 @@ class ViewController: UIViewController {
 
 使用 **`CAShapeLayer`** 的 **`strokeEnd`** 属性来绘制一个圆弧型进度条，让这个类继承 **`UIButton`**
 
-![](./images/UIButton IB.jpg)
+![](./images/UIButton_IB.jpg)
 
 
 
@@ -389,7 +389,7 @@ class ViewController: UIViewController {
 
 效果图如下：
 
-![](./images/UIButton Progress 效果图.jpg)
+![](./images/UIButton_Progress效果图.jpg)
 
 
 
